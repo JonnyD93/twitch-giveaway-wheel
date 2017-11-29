@@ -1,0 +1,27 @@
+
+#nav{
+    background-color: #777777 ;
+    padding-left: 15px;
+    left: 40%;
+}
+#cnvs{
+    padding: 100px;
+}
+#spinBtn {
+    padding: 1px;
+}
+.dial {
+    transform: scale(20%);
+}
+.dialC {
+    left: 49%;
+    position: absolute;
+    margin-top: -847px;
+}
+.tabC {
+    color: white;
+}
+.tabs .indicator {
+    background-color: white !important;
+}
+@keyframes spin { 100% {-webkit-transform: rotate(360deg)} }

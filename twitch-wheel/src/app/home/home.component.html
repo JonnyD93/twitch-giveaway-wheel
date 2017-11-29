@@ -1,0 +1,80 @@
+<nav id="nav">
+    <a href="#/home" class="brand-logo padding-left=30 center">Give Away Wheel</a>
+</nav>
+<div class="row">
+    <span>Winner: {{winner}}</span>
+</div>
+<div class="row center">
+    <canvas id="cnvs" height="720" width="720" class="center"></canvas>
+</div>
+<div class="dialC center">
+    <img src="/assets/spinnerdial.png" width="20px" height="20px" class="dial">
+</div>
+<div class="row center">
+    <a  id="spinbtn" class="waves-effect black waves-light btn-large" (click)="spinWheel()"><i class="material-icons left">rotate_left</i>Spin!</a>
+</div>
+<div class="row center">
+    <div class="col s8 offset-s2">
+        <div class="card" >
+            <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width" style="background-color: #444444;">
+                    <li class="tab"><a class="active" style="color: white;" href="#namesTab">Contestants</a></li>
+                    <li class="tab"><a style="color: white;" href="#colorsTab">Colors</a></li>
+                    <div class="indicator orange" style="z-index: 1"></div>
+                </ul>
+            </div>
+            <div class="card-content grey lighten-2">
+                <div id="namesTab">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="addContestant" type="text" (keyup.enter)="addContestant()" [(ngModel)]="contestant">
+                            <label for="addContestant">Contestant</label>
+                        </div>
+                        <div class="col s2">
+                            <a class="btn waves-effect waves-light right" (click)="addContestant()" style="background-color:#000000;"><i class="material-icons" >add</i></a>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contestant Name</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let name of names">
+                                <td>{{name}}</td>
+                                <td><a (click)="removeSelectedContestant(name)" class="btn black material-icons" style="cursor:pointer;">X</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="colorsTab">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <span>Color</span>
+                            <input type="color" [(ngModel)]="color">
+                            <input type="DOMString" [(ngModel)]="color" (keyup.enter)="addColor();">
+                        </div>
+                        <div class="col s2">
+                            <a class="btn waves-effect waves-light right" style="background-color:#000000;" (click)="addColor()"><i class="material-icons">add</i></a>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let color of colors">
+                                <td>{{color}}</td>
+                                <td><a (click)="removeSelectedColor(color)" class="btn black material-icons" style="cursor:pointer;">X</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
